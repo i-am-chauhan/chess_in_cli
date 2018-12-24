@@ -4,14 +4,14 @@ const { Queen } = require('../../src/piece/queen.js');
 describe('Queen', function () {
     describe('validPossibleMoves', function () {
         it('should return empty array of moves for postion is out of board', function () {
-            let pawn = new Queen([-5, -11]);
-            let actualOutput = pawn.validPossibleMoves();
+            let queen = new Queen([-5, -11]);
+            let actualOutput = queen.validPossibleMoves();
             assert.deepEqual(actualOutput, []);
         })
 
         it('should return all valid moves that are present for input [0,1]', function () {
-            let pawn = new Queen([0, 1]);
-            let actualOutput = pawn.validPossibleMoves();
+            let queen = new Queen([0, 1]);
+            let actualOutput = queen.validPossibleMoves();
             let expectedOutput = [[0, 0],
             [0, 2],
             [0, 3],
