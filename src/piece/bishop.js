@@ -44,6 +44,5 @@ class Bishop {
         return { validUpRightMoves, validUpLeftMoves, validBottomRightMoves, validBottomLeftMoves };
     }
 };
-let bishop = new Bishop([0,1])
-console.log(bishop.validPossibleMoves())
+
 exports.Bishop = Bishop;
