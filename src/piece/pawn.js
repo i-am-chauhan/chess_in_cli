@@ -9,12 +9,14 @@ class Pawn {
 
     allPossibleMoves() {
         return this.difference[this.team].map(x =>
-            [this.position[0] + x[0], this.position[1] + x[1]]);
+            [this.position[0] + x[0], this.position[1] + x[1]]
+        );
     }
 
     validPossibleMoves() {
         return this.allPossibleMoves().filter(cell =>
-            cell.every(index => Math.abs(index) == index));
+            cell.every(index => index >= 0 && index < 8)
+        );
     }
 };
 

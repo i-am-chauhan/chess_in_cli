@@ -1,3 +1,5 @@
+const { zip } = require('../util.js');
+
 class Rook {
     constructor(position) {
         this.position = position;
@@ -5,16 +7,11 @@ class Rook {
         this.negativeIndexDiffs = [-1, -2, -3, -4, -5, -6, -7];
     }
 
-    zip(firstList, secondList) {
-        return firstList.map((element, index) =>
-            [element, secondList[index]]);
-    }
-
     allPositionDiffs() {
-        return this.zip(new Array(8).fill(0), this.positiveIndexDiffs).concat(
-            this.zip(new Array(8).fill(0), this.negativeIndexDiffs),
-            this.zip(this.positiveIndexDiffs, new Array(8).fill(0)),
-            this.zip(this.negativeIndexDiffs, new Array(8).fill(0))
+        return zip(new Array(8).fill(0), this.positiveIndexDiffs).concat(
+            zip(new Array(8).fill(0), this.negativeIndexDiffs),
+            zip(this.positiveIndexDiffs, new Array(8).fill(0)),
+            zip(this.negativeIndexDiffs, new Array(8).fill(0))
         ).sort();
     }
 
@@ -25,7 +22,8 @@ class Rook {
 
     validPossibleMoves() {
         return this.allPossibleMoves().filter(cell =>
-            cell.every(index => index >= 0 && index < 8));
+            cell.every(index => index >= 0 && index < 8)
+        );
     }
 };
 

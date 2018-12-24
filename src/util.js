@@ -4,4 +4,13 @@ const getAllCombinations = function (firstList, secondList) {
   }, []);
 }
 
-exports.getAllCombinations = getAllCombinations;
+const zip = function (firstList, secondList) {
+  return firstList.map((element, index) =>
+    [element, secondList[index]]
+  );
+}
+
+module.exports = {
+  getAllCombinations,
+  zip
+}

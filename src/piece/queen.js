@@ -29,7 +29,8 @@ class Queen {
 
     validPossibleMoves() {
         return this.allPossibleMoves().filter(cell =>
-            cell.every(index => index >= 0 && index < 8));
+            cell.every(index => index >= 0 && index < 8)
+        );
     }
 };
 

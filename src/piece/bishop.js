@@ -1,3 +1,5 @@
+const { zip } = require('../util.js');
+
 class Bishop {
     constructor(position) {
         this.position = position;
@@ -5,16 +7,11 @@ class Bishop {
         this.negativeIndexDiffs = [-1, -2, -3, -4, -5, -6, -7];
     }
 
-    zip(firstList, secondList) {
-        return firstList.map((element, index) =>
-            [element, secondList[index]]);
-    }
-
     allPositionDiffs() {
-        const upRightDiffs = this.zip(this.positiveIndexDiffs, this.positiveIndexDiffs);
-        const upLeftDiffs = this.zip(this.negativeIndexDiffs, this.positiveIndexDiffs);
-        const bottomRightDiffs = this.zip(this.positiveIndexDiffs, this.negativeIndexDiffs);
-        const bottomLeftDiffs = this.zip(this.negativeIndexDiffs, this.negativeIndexDiffs);
+        const upRightDiffs = zip(this.positiveIndexDiffs, this.positiveIndexDiffs);
+        const upLeftDiffs = zip(this.negativeIndexDiffs, this.positiveIndexDiffs);
+        const bottomRightDiffs = zip(this.positiveIndexDiffs, this.negativeIndexDiffs);
+        const bottomLeftDiffs = zip(this.negativeIndexDiffs, this.negativeIndexDiffs);
         return { upRightDiffs, upLeftDiffs, bottomRightDiffs, bottomLeftDiffs };
     }
 
