@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { Queen } = require("../../src/piece/queen.js");
+const { Queen } = require("../../src/possibleMoves/queen.js");
 
 describe("Queen", function() {
   describe("validPossibleMoves", function() {

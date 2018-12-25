@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { Rook } = require("../../src/piece/rook.js");
+const { Rook } = require("../../src/possibleMoves/rook.js");
 
 describe("Rook", function() {
   describe("validPossibleMoves", function() {

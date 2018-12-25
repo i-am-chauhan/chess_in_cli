@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { Bishop } = require("../../src/piece/bishop.js");
+const { Bishop } = require("../../src/possibleMoves/bishop.js");
 
 describe("Bishop", function() {
   describe("validPossibleMoves", function() {
