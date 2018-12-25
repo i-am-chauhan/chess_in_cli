@@ -105,6 +105,4 @@ class Queen {
   }
 }
 
-let queen = new Queen([0, 1]);
-console.log(queen.validPossibleMoves());
 exports.Queen = Queen;
