@@ -24,13 +24,13 @@ describe("Knight", function() {
     it("should return empty array of moves for postion is out of board", function() {
       const knight = new Knight([-5, -1]);
       const actualOutput = knight.validPossibleMoves();
-      assert.deepEqual(actualOutput, []);
+      assert.deepEqual(actualOutput, { allMoves: [] });
     });
 
     it("should return all valid moves that are present for input [0,1]", function() {
       const knight = new Knight([0, 1], "firstTeam");
       const actualOutput = knight.validPossibleMoves();
-      const expectedOutput = [[1, 3], [2, 0], [2, 2]];
+      const expectedOutput = { allMoves: [[1, 3], [2, 0], [2, 2]] };
       assert.deepEqual(actualOutput, expectedOutput);
     });
   });

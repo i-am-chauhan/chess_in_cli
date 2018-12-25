@@ -18,9 +18,10 @@ class Knight {
   }
 
   validPossibleMoves() {
-    return this.allPossibleMoves().filter(cell =>
+    const allMoves = this.allPossibleMoves().filter(cell =>
       cell.every(index => index >= 0 && index < 8)
     );
+    return { allMoves };
   }
 }
 

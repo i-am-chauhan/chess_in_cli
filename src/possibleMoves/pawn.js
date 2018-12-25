@@ -7,17 +7,26 @@ class Pawn {
     this.difference.secondTeam = [[0, -1], [-1, -1], [1, -1]];
   }
 
+  placeMove(diff) {
+    return [this.position[0] + diff[0], this.position[1] + diff[1]];
+  }
+
   allPossibleMoves() {
-    return this.difference[this.team].map(x => [
-      this.position[0] + x[0],
-      this.position[1] + x[1]
-    ]);
+    const diffs = this.difference[this.team];
+    const runningPossibles = diffs.slice(0, 1).map(this.placeMove, this);
+    const killingPossibles = diffs.slice(1).map(this.placeMove, this);
+    return { runningPossibles, killingPossibles };
+  }
+
+  filterMoves(move) {
+    return move.every(index => index >= 0 && index < 8);
   }
 
   validPossibleMoves() {
-    return this.allPossibleMoves().filter(cell =>
-      cell.every(index => index >= 0 && index < 8)
-    );
+    const { runningPossibles, killingPossibles } = this.allPossibleMoves();
+    const runningMoves = runningPossibles.filter(this.filterMoves);
+    const killingMoves = killingPossibles.filter(this.filterMoves);
+    return { runningMoves, killingMoves };
   }
 }
 

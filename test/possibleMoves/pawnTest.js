@@ -6,13 +6,21 @@ describe("Pawn", function() {
     it("should return [[ -2, 0 ], [ -1, 0 ], [ -3, 0 ]] for input [-2, -1]", function() {
       const pawn = new Pawn([-2, -1], "firstTeam");
       const actualOutput = pawn.allPossibleMoves();
-      assert.deepEqual(actualOutput, [[-2, 0], [-1, 0], [-3, 0]]);
+      const expectedOutput = {
+        runningPossibles: [[-2, 0]],
+        killingPossibles: [[-1, 0], [-3, 0]]
+      };
+      assert.deepEqual(actualOutput, expectedOutput);
     });
 
     it("should return [[0,2],[1,2],[-1,2]] for input [0,1]", function() {
-      const pawn = new Pawn([0, 1], "firstTeam");
+      const pawn = new Pawn([0, 1], "secondTeam");
       const actualOutput = pawn.allPossibleMoves();
-      assert.deepEqual(actualOutput, [[0, 2], [1, 2], [-1, 2]]);
+      const expectedOutput = {
+        runningPossibles: [[0, 0]],
+        killingPossibles: [[-1, 0], [1, 0]]
+      };
+      assert.deepEqual(actualOutput, expectedOutput);
     });
   });
 
@@ -20,13 +28,15 @@ describe("Pawn", function() {
     it("should return empty array of moves for postion is out of board", function() {
       const pawn = new Pawn([-2, -1], "firstTeam");
       const actualOutput = pawn.validPossibleMoves();
-      assert.deepEqual(actualOutput, []);
+      const expectedOutput = { runningMoves: [], killingMoves: [] };
+      assert.deepEqual(actualOutput, expectedOutput);
     });
 
     it("should return [[0,2],[1,2]] for input [0,1]", function() {
       const pawn = new Pawn([0, 1], "firstTeam");
       const actualOutput = pawn.validPossibleMoves();
-      assert.deepEqual(actualOutput, [[0, 2], [1, 2]]);
+      const expectedOutput = { runningMoves: [[0, 2]], killingMoves: [[1, 2]] };
+      assert.deepEqual(actualOutput, expectedOutput);
     });
   });
 });
