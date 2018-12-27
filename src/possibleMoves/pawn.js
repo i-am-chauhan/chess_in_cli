@@ -3,8 +3,8 @@ class Pawn {
     this.position = position;
     this.team = team;
     this.difference = {};
-    this.difference.firstTeam = [[0, 1], [1, 1], [-1, 1]];
-    this.difference.secondTeam = [[0, -1], [-1, -1], [1, -1]];
+    this.difference.firstTeam = [[1, 0], [1, 1], [1, -1]];
+    this.difference.secondTeam = [[-1, 0], [-1, -1], [-1, 1]];
   }
 
   placeMove(diff) {
